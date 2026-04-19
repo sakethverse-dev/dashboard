@@ -56,6 +56,14 @@ The project follows a modular structure for maintainability:
 
 ---
 
+## 🔑 Evaluator Access
+
+For quick evaluation, a **One-Click Demo Login** is available on the login screen. Alternatively, you can use the following credentials:
+*   **Email**: `evaluator@campus.com`
+*   **Password**: `evaluator123`
+
+---
+
 ## 🚀 Setup Instructions
 
 1. **Clone the Repo**:

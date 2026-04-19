@@ -90,6 +90,47 @@ const Login = () => {
           >
             {loading ? "Authenticating..." : "Sign In"}
           </button>
+
+          <div style={{ margin: '1rem 0', display: 'flex', alignItems: 'center', color: 'var(--text-secondary)', fontSize: '0.8rem' }}>
+            <div style={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.1)' }}></div>
+            <span style={{ margin: '0 1rem' }}>OR</span>
+            <div style={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.1)' }}></div>
+          </div>
+
+          <button 
+            type="button" 
+            className="glass" 
+            style={{ 
+              width: '100%', 
+              padding: '0.8rem', 
+              border: '1px solid rgba(0, 243, 255, 0.3)',
+              color: 'var(--accent-primary)',
+              cursor: 'pointer',
+              fontSize: '0.9rem',
+              fontWeight: '500'
+            }}
+            onClick={async () => {
+              setEmail("evaluator@campus.com");
+              setPassword("evaluator123");
+              // We'll let the form submit naturally contextually or trigger it
+              setLoading(true);
+              try {
+                await signInWithEmailAndPassword(auth, "evaluator@campus.com", "evaluator123");
+                navigate("/dashboard");
+              } catch (err) {
+                setError("Demo account not found. Please create 'evaluator@campus.com' in Firebase Console.");
+              } finally {
+                setLoading(false);
+              }
+            }}
+            disabled={loading}
+          >
+            Login as Evaluator (One-Click)
+          </button>
+          
+          <p style={{ marginTop: '0.5rem', fontSize: '0.7rem', color: 'rgba(255,255,255,0.3)' }}>
+            Demo: evaluator@campus.com / evaluator123
+          </p>
         </form>
 
         <p style={{ marginTop: '2rem', fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
